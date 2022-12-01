@@ -3,8 +3,9 @@ import { useParams,useOutletContext } from 'react-router-dom'
 
 
 export default function Book() {
-  const {id} = useParams()
   const obj = useOutletContext()
+  const {id} = useParams()
+ 
   return (
     <>
     
