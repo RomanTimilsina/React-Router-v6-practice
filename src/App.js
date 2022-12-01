@@ -2,6 +2,7 @@ import {Route, Routes, Link} from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import BookList from './pages/BookList'
+import BookLayout from './pages/BookLayout'
 import Book from './pages/Book'
 import NewBook from './pages/NewBook'
 
@@ -16,11 +17,13 @@ function App() {
       </ul>
     </nav>
 <Routes>
-  <Route path = '/' element = {<Home/>}></Route>
-  <Route path = '/books' element = {<BookList/>}></Route>
-  <Route path = '/books/:id' element = {<Book/>}></Route>
-  <Route path = '/books/new' element = {<NewBook/>}></Route>
-  <Route path = '*' element = {<NotFound/>}>Not Found</Route>
+<Route path = '/' element = {<Home/>}/>
+  {<Route path = '/books' element= {<BookLayout/>}>
+    <Route index element = {<BookList/>}/>
+      <Route path = ':id' element = {<Book/>}/>
+      <Route path = 'new' element = {<NewBook/>}/>
+  </Route>}
+  <Route path = '*' element = {<NotFound/>}/>
 </Routes>
 
     </>
